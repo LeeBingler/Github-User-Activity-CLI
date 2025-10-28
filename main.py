@@ -64,7 +64,7 @@ def main():
 
     if type(data) == int:
         print(f"Error in fetching data: {data}")
-        return -1
+        return -2
 
     json = data.json()
 
