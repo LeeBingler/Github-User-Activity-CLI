@@ -15,8 +15,8 @@ Example output:
 ## Installation
 1. Clone the repository
 ```
-git clone https://github.com/<your-username>/github-activity-fetcher.git
-cd github-activity-fetcher
+git clone git@github.com:<your-username>/Github-User-Activity-CLI.git
+cd Github-User-Activity-CLI
 ```
 
 2. Install dependencies
@@ -54,7 +54,7 @@ Output:
 
 ## Project Structure
 ```
-github-activity-fetcher/
+Github-User-Activity-CLI/
 ├── main.py              # Main entry point
 └── README.md            # Documentation
 ```
