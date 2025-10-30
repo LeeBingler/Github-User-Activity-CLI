@@ -17,43 +17,49 @@ def fetchData():
 
     return response
 
+class bcolors:
+    TYPE = "\033[95m"
+    DATE = "\033[94m"
+    NAME = "\033[93m"
+    END = "\033[0m"
+
 def _handleType(type):
     match type:
             case "CreateEvent":
-                print("Created ", end='')
+                print(bcolors.TYPE + "Created " + bcolors.END, end='')
             case "DeleteEvent":
-                print("Deleted ", end='')
+                print(bcolors.TYPE + "Deleted " + bcolors.END, end='')
             case "DiscussionEvent":
-                print("Created discussion in ", end='')
+                print(bcolors.TYPE + "Created discussion in " + bcolors.END, end='')
             case "GollumEvent":
-                print("Created/Update a wiki page in ", end='')
+                print(bcolors.TYPE + "Created/Update a wiki page in " + bcolors.END, end='')
             case "IssueCommentEvent":
-                print("Interacted with an issue discussion in ", end='')
+                print(bcolors.TYPE + "Interacted with an issue discussion in " + bcolors.END, end='')
             case "MemberEvent":
-                print("Interacted with ", end='')
+                print(bcolors.TYPE + "Interacted with " + bcolors.END, end='')
             case "PublicEvent":
-                print("Maded public ", end='')
+                print(bcolors.TYPE + "Maded public " + bcolors.END, end='')
             case "PullRequestEvent":
-                print("Interacted with pull request of ", end='')
+                print(bcolors.TYPE + "Interacted with pull request of " + bcolors.END, end='')
             case "PullRequestReviewEvent":
-                print("Interacted with pull request review of ", end='')
+                print(bcolors.TYPE + "Interacted with pull request review of " + bcolors.END, end='')
             case "PullRequestReviewCommentEvent":
-                print("Interacted with pull request review comment of ", end='')
+                print(bcolors.TYPE + "Interacted with pull request review comment of " + bcolors.END, end='')
             case "PushEvent":
-                print("Pushed a commit in ", end='')
+                print(bcolors.TYPE + "Pushed a commit in " + bcolors.END, end='')
             case "ReleaseEvent":
-                print("Interacted with release of ", end='')
+                print(bcolors.TYPE + "Interacted with release of " + bcolors.END, end='')
             case "WatchEvent":
-                print("Stars ", end='')
+                print(bcolors.TYPE + "Stars " + bcolors.END, end='')
             case _:
                 print("ERROR", type)
 
 def formatString(output):
-    print(f"[{output["created_at"]}]", end=" ")
+    print(bcolors.DATE + f"[{output["created_at"]}]" + bcolors.END, end=" ")
     
     _handleType(output["type"])
     
-    print(output["repo"]["name"])
+    print(bcolors.NAME + output["repo"]["name"] + bcolors.END)
 
 def main():
     if parser() != 0:
